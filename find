@@ -1,0 +1,24 @@
+
+std::vector<int> v{ 5, 3, 7, 9, 4 };
+auto lambda = [](int i) { return i > 6; };	
+
+// find_if
+std::vector<int>::iterator it = std::find_if(v.begin(), v.end(), lambda); 
+int firstElementGreaterThanSix = *it; // 7
+
+// find_if_not
+std::vector<int>::iterator it = std::find_if_not(v.begin(), v.end(), lambda); 
+int firstElementLessThanSix = *it; // 5
+
+
+std::string s = "moo_cookies";
+std::string t = "oo";
+
+// find_end
+std::string::iterator it = std::find_end(s.begin(), s.end(), t.begin(), t.end()); 
+// Points to the 'o' after the 'c'
+
+// find_first_of
+std::string::iterator it = std::find_first_of(s.begin(), s.end(), t.begin(), t.end()); 
+// Points to the 'o' after the 'm
+
