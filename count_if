@@ -1,7 +1,0 @@
-
-std::vector<int> numbers{ -1, 0, 1, 2, 3, 4, 5 }:
-
-auto is_positive = [](int i) { return i > 0; };
-int count = std::count_if(numbers.begin(), numbers.end(), is_positive);
-// or
-// int count = std::count_if(numbers.begin(), numbers.end(), [](int i) { retrun i > 0; };);
