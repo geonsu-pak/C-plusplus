@@ -1,0 +1,8 @@
+
+std::vector<int> v{ 5, 3, 7, 9, 4 };
+	
+auto lambda = [](int i) { return i > 6; };
+
+std::vector<int>::iterator it = std::find_if(v.begin(), v.end(), lambda); 
+
+int firstElementGreaterThanSix = *it; // 7
