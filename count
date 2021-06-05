@@ -1,0 +1,9 @@
+
+std::vector<int> v{ 5, 3, 7, 9, 3, 4 };
+	
+// count
+int countOfThree = std::count(v.begin(), v.end(), 3); // 2
+
+// count_if
+auto lambda = [](int i) { return i > 2; };
+int count = count_if(v.begin(), v.end(), lambda); // 6
