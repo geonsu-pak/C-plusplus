@@ -1,3 +1,23 @@
+class Task
+{
+public:
+    void execute(std::string command);
+};
+
+Now we want to start a thread which uses execute() function of the class Task as thread function.
+As execute() is a non static function of class Task, so first of all we need a object to call this function. Let’s create an object of class Task i.e.
+Task * taskPtr = new Task();
+
+Now let’s create a Thread that will use this member function execute() as thread function through its object i.e.
+// Create a thread using member function
+std::thread th(&Task::execute, taskPtr, "Sample Task");
+
++++++++++++++++++++++++++++++++++++++++++
+auto thread1 = std::thread(SimpleThread, std::ref(a));
+or use lambda:
+auto thread1 = std::thread([&a]() { SimpleThread(a); });
+
++++++++++++++++++++++++++++++++++++++++++
 #include <iostream>
 #include <thread>
 
