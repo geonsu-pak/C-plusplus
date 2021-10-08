@@ -12,6 +12,16 @@ Now let’s create a Thread that will use this member function execute() as thre
 // Create a thread using member function
 std::thread th(&Task::execute, taskPtr, "Sample Task");
 
+or 
+class Task
+{
+public:
+    void execute(std::string& command);
+};
+
+string s = "Sample Task";
+std::thread th(&Task::execute, taskPtr, std::ref(s));
+
 +++++++++++++++++++++++++++++++++++++++++
 auto thread1 = std::thread(SimpleThread, std::ref(a));
 or use lambda:
