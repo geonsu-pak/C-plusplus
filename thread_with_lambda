@@ -1,0 +1,38 @@
+#include <iostream>
+#include <thread>
+
+    std::thread t([](){
+        std::cout << "thread function\n";
+    });
+    std::cout << "main thread\n";
+    t.join();
+    
+ ++++++++++++++++++++++++++++++++++++++++
+ multi-thread and join
+ ++++++++++++++++++++++++++++++++++++++++
+#include <iostream>
+#include <thread>
+#include <vector>
+#include <algorithm>
+ 
+    std::vector<std::thread> workers;
+    for (int i = 0; i < 5; i++) {
+        workers.push_back(std::thread([]()   // workers.push_back(std::thread([i]()
+        {
+            std::cout << "thread function\n";
+        }));
+    }
+    
+    std::for_each(workers.begin(), workers.end(), [](std::thread &t) 
+    {
+        t.join();
+    });
+   
+++++++++++++++++++++++++++++++++++++++++++
+#include <mutex>
+std::mutex mu;
+
+	mu.lock();
+	std::cout << msg << ":" << id << std::endl;
+	mu.unlock();
+++++++++++++++++++++++++++++++++++++++++++
