@@ -3,3 +3,5 @@
     std::sort(v.begin(), v.end());
     // 내림차순
     sort(v.begin(), v.end(), greater<int>());   
+    // = 
+    sort(v.begin(), v.end(), [](const int& a, const int&b) { return a > b; });
