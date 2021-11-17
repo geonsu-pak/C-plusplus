@@ -40,19 +40,20 @@ std::for_each(
 #### ExecutionPolicy 
 * std::execution::seq : 생략시 디폴트. 순차처리(패러럴 효과없음)
 * std::execution::par : 패러럴 처리   
- 
+ <pre>
     int sum = 0;    
     std::mutex m;    
     std::for_each(std::execution::par, std::begin(v), std::end(v), [&](int i) {    
                   std::lock_guard<std::mutex> lock{m};    
                   sum += i * i;    
                   });    
+</pre>
 * std::execution::par_unseq : 패러렐 처리이지만 하나의 쓰레드에서 복수의 함수콜을 할 수 있으므로 동기화에 주의할 필요 있슴 
      std::lock_guard<std::mutex> lock{m}; 은 하나의 쓰레드에서 여러번 생성하므로 에러 발생 -> automic 사용해야 함.    
-     
+<pre>     
     std::atomic<int> sum{0};    
     std::for_each(std::execution::par_unseq, std::begin(v), std::end(v), [&](int i) {    
             sum.fetch_add(i*i, std::memory_order_relaxed);
     });
-
+</pre>
      
