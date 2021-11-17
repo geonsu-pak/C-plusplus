@@ -24,17 +24,19 @@ Thread와 비슷하지만 리턴값을 받을 필요가 있을 때 사용.
         std::cout << "result is " << f.get() << '\n';
     }
 # for_each c++17 
-    std::vector<std::string> foo;
-    std::for_each(
-        std::execution::par_unseq,
-        foo.begin(),
-        foo.end(),
-        [](auto&& item)
-        {
-           //do stuff with item
-        }
-     );
-     
+<pre>
+std::vector<std::string> foo;
+std::for_each(
+    std::execution::par,
+    foo.begin(),
+    foo.end(),
+    [](auto& item) {
+        <b>index = &item - &foo[0];</b>
+        //do stuff with item
+    }
+);
+</pre>  
+
 #### ExecutionPolicy 
 * std::execution::seq : 생략시 디폴트. 순차처리(패러럴 효과없음)
 * std::execution::par : 패러럴 처리   
