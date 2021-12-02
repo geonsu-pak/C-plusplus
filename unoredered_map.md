@@ -5,12 +5,13 @@ int n = sizeof(arr) / sizeof(arr[0]);
 int k = 2;
 
 // <숫자, 출현횟수>
-unordered_map<int, int> um;
-for(int i=0; i<n; i++) {
+unordered_map< int, int > um;
+
+for(int i=0; i < n; i++) {
    um[arr[i]]++;
 }
 
-vector<pair<int,int>> freq_arr(um.begin(), um.end());
+vector< pair < int,int > > freq_arr(um.begin(), um.end());
 sort(freq_arr.begin(), freq_arr.end(), 
      [](pair<int,int> &p1, pair<int,int> &p2){ 
         if(p1.second == p2.second)
