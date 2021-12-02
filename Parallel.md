@@ -20,7 +20,7 @@ Thread와 비슷하지만 리턴값을 받을 필요가 있을 때 사용.
 ## Lambda
     int main() {
         auto f = std::async(std::launch::async, 
-                            [](unsigned int i) { return i*i; }, 8);
+                            [](unsigned int i) { return i*i; });
         std::cout << "result is " << f.get() << '\n';
     }
 # for_each c++17 
