@@ -3,7 +3,7 @@
 constexpr int LENGTH = 4;
 constexpr int WIDTH = 4;
 
-std::vector<std::vector<int>> vector_2d(LENGTH, vector<int>(WIDTH, 0));
+std::vector < std::vector < int > > vector_2d(LENGTH, std::vector < int > (WIDTH, 0));
 vector_2d[2][2] = 10;
 </pre>
 ## sum
