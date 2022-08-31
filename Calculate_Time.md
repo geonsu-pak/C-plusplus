@@ -1,10 +1,11 @@
 <pre>
 #include < chrono >
-   
-auto start = std::chrono::high_resolution_clock::now();
-// working hard
-auto end = std::chrono::high_resolution_clock::now();
 
-std::chrono::duration< double, std::milli > float_ms = end - start;
-std::cout << "funcSleep() elapsed time is " << float_ms.count() << " milliseconds" << std::endl;
+using clock = std::chrono::system_clock;
+using sec = std::chrono::duration<double>;
+
+const auto before = clock::now();
+// Time consuming work
+const sec duration = clock::now() - before;
+std::cout << "It took " << duration.count() << "s" << std::endl;
 </pre>
